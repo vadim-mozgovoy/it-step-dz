@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ContactFormDialogComponent } from '../contact-form-dialog/contact-form-dialog.component';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    const dialogRef = this.dialog.open(ContactFormDialogComponent, {
+      width: '250px',
+      data: {name: 'Vadim', animal: 'Moz'}
+    });
   }
 
 }
