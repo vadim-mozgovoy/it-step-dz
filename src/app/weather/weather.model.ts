@@ -18,7 +18,7 @@ export interface WeatherData {
 
 export interface WeatherDescription {
   description: string;
-  icon: string; // "50n"
+  icon: string; // TODO: Vadin "50n" -> 1-14
   id: string;
   main: string;
 }
