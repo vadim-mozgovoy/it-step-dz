@@ -3,6 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'weather'
+  }, {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   }, {
