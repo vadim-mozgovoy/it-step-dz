@@ -14,7 +14,7 @@
             <div class="num">{{ weather?.main?.temp | number:'1.0-0' }}<sup>o</sup>C</div>
             <div class="forecast-icon">
 
-              <!-- Задача - 2 Подставить ПРАВИЛЬНУЮ иконку (1-14)         -->
+              <!-- Задача - 2 Подставить ПРАВИЛЬНУЮ иконку (1-14 із малюнків)         -->
               <img [src]="'http://openweathermap.org/img/w/' + weather.weather[0].icon + '.png'" alt="" width=90>
             </div>
           </div>
@@ -25,8 +25,8 @@
       </div>
       <div *ngFor="let day of forecast; let i = index" class="forecast">
         <div class="forecast-header">
-          <!--    TODO: Правильно подставить день      -->
-          <div class="day">Tuesday</div>
+          <!--    Задача № 3 - Розмісти логіку в pipe: i -->
+          <div class="day">{{ getNextDay(i) }}</div>
         </div> <!-- .forecast-header -->
         <div class="forecast-content">
           <div class="forecast-icon">

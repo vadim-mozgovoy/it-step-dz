@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import { Weather } from '../weather.model';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-weather',
@@ -24,4 +25,7 @@ export class WeatherComponent implements OnInit {
       .subscribe(data =>  this.forecast = data);
   }
 
+  getNextDay(index: number): string {
+    return moment(this.today).add(index + 1, 'day').format('dddd');
+  }
 }
