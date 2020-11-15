@@ -8,6 +8,9 @@ const routes: Routes = [
   }, {
     path: 'contact',
     loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule),
+  }, {
+    path: 'weather',
+    loadChildren: () => import('./weather/weather.module').then(m => m.WeatherModule),
   }
 ];
 
