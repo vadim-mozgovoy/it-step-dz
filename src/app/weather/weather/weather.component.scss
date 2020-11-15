@@ -129,6 +129,7 @@ $grid-gutter-width : 30px !default;
         @include em(24);
         color: white;
         font-weight: 700;
+        margin-bottom: 30px;
       }
       small{@include em(16)}
     }
