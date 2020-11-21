@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'weather'
+    redirectTo: 'shop'
   }, {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
@@ -15,6 +15,9 @@ const routes: Routes = [
   }, {
     path: 'weather',
     loadChildren: () => import('./weather/weather.module').then(m => m.WeatherModule),
+  }, {
+    path: 'shop',
+    loadChildren: () => import('./online-shop/online-shop.module').then(m => m.OnlineShopModule),
   }
 ];
 
