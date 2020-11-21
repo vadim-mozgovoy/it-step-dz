@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "../order/order.component";
+import {OnlineShopService} from "../online-shop.service";
 
 
 @Component({
@@ -9,21 +10,14 @@ import {Product} from "../order/order.component";
 })
 export class ShopCardsComponent implements OnInit {
 
-  products: Product[] = [
-    {position: 1, name: 'Dog', img: 'src=https://material.angular.io/assets/img/examples/shiba2.jpg',quantity: 1, price: 150, subtotal: 150, remove: '&nbsp;' },
-    {position: 2, name: 'Dog1', img: 'src=https://material.angular.io/assets/img/examples/shiba2.jpg',quantity: 2, price: 150, subtotal: 150, remove: '&nbsp;' },
-    {position: 2, name: 'Dog1', img: 'src=https://material.angular.io/assets/img/examples/shiba2.jpg',quantity: 2, price: 150, subtotal: 150, remove: '&nbsp;' },
-    {position: 2, name: 'Dog1', img: 'src=https://material.angular.io/assets/img/examples/shiba2.jpg',quantity: 2, price: 150, subtotal: 150, remove: '&nbsp;' },
-    {position: 2, name: 'Dog1', img: 'src=https://material.angular.io/assets/img/examples/shiba2.jpg',quantity: 2, price: 150, subtotal: 150, remove: '&nbsp;' },
-    {position: 2, name: 'Dog1', img: 'src=https://material.angular.io/assets/img/examples/shiba2.jpg',quantity: 2, price: 150, subtotal: 150, remove: '&nbsp;' },
-    {position: 2, name: 'Dog1', img: 'src=https://material.angular.io/assets/img/examples/shiba2.jpg',quantity: 2, price: 150, subtotal: 150, remove: '&nbsp;' },
-  ];
+  products: Product[] ;
 
 
 
-  constructor() { }
+  constructor(private service: OnlineShopService) { }
 
   ngOnInit(): void {
+    this.products = this.service.getProducts();
   }
 
 }
