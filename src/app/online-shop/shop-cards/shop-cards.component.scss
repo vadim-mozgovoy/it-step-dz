@@ -26,7 +26,13 @@ ul{
   list-style-type: none;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 p{
   color: white;
+}
+.shopingcard{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

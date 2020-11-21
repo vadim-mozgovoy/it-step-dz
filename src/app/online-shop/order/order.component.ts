@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface PeriodicElement {
+export interface Product {
   name: string;
   position: number;
   img: string;
@@ -10,7 +10,7 @@ export interface PeriodicElement {
   remove: string
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const ELEMENT_DATA: Product[] = [
   {position: 1, name: 'Dog', img: 'src=https://material.angular.io/assets/img/examples/shiba2.jpg',quantity: 1, price: 150, subtotal: 150, remove: '&nbsp;' },
   {position: 2, name: 'Dog1', img: 'src=https://material.angular.io/assets/img/examples/shiba2.jpg',quantity: 2, price: 150, subtotal: 150, remove: '&nbsp;' }
 ];
