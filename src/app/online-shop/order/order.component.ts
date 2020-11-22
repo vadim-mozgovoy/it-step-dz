@@ -31,6 +31,7 @@ export class OrderComponent implements OnInit {
 
   getTotalCost(): number {
     return 1000; // FIXME: поправить
+
   }
 
 }
