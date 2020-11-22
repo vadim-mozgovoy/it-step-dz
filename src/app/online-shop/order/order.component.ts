@@ -2,19 +2,17 @@ import {Component, OnInit} from '@angular/core';
 import {OnlineShopService} from '../online-shop.service';
 import {OrderDialogComponent} from '../order-dialog/order-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
-import {DisplayedColumns, Product} from '../models';
-
+import {Product} from '../models';
 
 
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.scss']
+  "selector": 'app-order',
+  "templateUrl": './order.component.html',
+  "styleUrls": ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
 
   products: Product[];
-  displayedColumns: DisplayedColumns[];
 
 
   constructor(private service: OnlineShopService,
@@ -26,12 +24,18 @@ export class OrderComponent implements OnInit {
   }
 
   openDialog(): void {
-     this.dialog.open(OrderDialogComponent);
+    this.dialog.open(OrderDialogComponent);
   }
+  // getSubtotal(): number{
+  //   return this.products[0].price * this.products[0].quantity
+  // }
 
   getTotalCost(): number {
-    return 1000; // FIXME: поправить
-
+    return this.products.map(t => t.subtotal).reduce((acc, value) => acc + value, 0);
+  }
+  deleteProduct(product){
+    const index = this.products.indexOf(product);
+    this.products.splice(index, 1);
   }
 
 }

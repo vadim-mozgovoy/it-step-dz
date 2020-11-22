@@ -36,24 +36,23 @@
 
   <ng-container matColumnDef="subtotal">
     <td> {{product.price * product.quantity }} $</td>
-
   </ng-container>
   <ng-container matColumnDef="remove">
     <td>
-      <button mat-icon-button>
+      <button mat-fab color="primary" (click)="deleteProduct(product)">
         <mat-icon>delete_forever</mat-icon>
       </button>
     </td>
   </ng-container>
   </tbody>
-  <tfooter>
-    <ng-container matColumnDef="total">
-      <td> All total</td>
+  <tfoot >
+      <td colspan="5"  style="text-align: end"><b>Total : </b></td>
+      <td >{{getTotalCost() }} $ </td>
       <td>
-        <button mat-raised-button color="primary" (click)="openDialog()">BUY</button>
+        <button mat-raised-button color="basic" (click)="openDialog()">BUY</button>
       </td>
-    </ng-container>
-  </tfooter>
+
+  </tfoot>
 
 </table>
 

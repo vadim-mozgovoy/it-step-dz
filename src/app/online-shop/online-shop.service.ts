@@ -48,7 +48,7 @@ export class OnlineShopService {
       img: 'https://modnapanenka.com.ua/image/data/Favoritti/990/120.jpeg',
       description: `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
       A small, agile dog that copes very well with mountainous terrain.`,
-      quantity: 2,
+      quantity: 1,
       price: 160,
       subtotal: 160,
       remove: '&nbsp;'
@@ -59,7 +59,7 @@ export class OnlineShopService {
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQuRluY3Vb_3GLxyTf-JNjwS42gKHuevFS7A&usqp=CAU',
       description: `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
       A small, agile dog that copes very well with mountainous terrain.`,
-      quantity: 2,
+      quantity: 1,
       price: 140,
       subtotal: 140,
       remove: '&nbsp;'
@@ -70,7 +70,7 @@ export class OnlineShopService {
       img: 'https://vsegdavmode.com/zimnee-palto-08856-pylnaja-roza-0-min.jpg',
       description: `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
       A small, agile dog that copes very well with mountainous terrain.`,
-      quantity: 2,
+      quantity: 1,
       price: 190,
       subtotal: 190,
       remove: '&nbsp;'
@@ -92,7 +92,7 @@ export class OnlineShopService {
       img: 'https://modnapanenka.com.ua/image/data/Favoritti/%D0%9F-1089/1089-2/7.jpeg',
       description: `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
       A small, agile dog that copes very well with mountainous terrain.`,
-      quantity: 2,
+      quantity: 1,
       price: 120,
       subtotal: 120,
       remove: '&nbsp;'
