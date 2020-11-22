@@ -1,19 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {OnlineShopService} from "../online-shop.service";
+import {OrderDialogComponent} from "../order-dialog/order-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
+import {DisplayedColumns, Product} from "../models";
 
-export interface Product {
-  name: string;
-  position: number;
-  img: string;
-  quantity: number;
-  price: number;
-  subtotal: number;
-  remove: string
-}
-
-const ELEMENT_DATA: Product[] = [
-  {position: 1, name: 'Dog', img: 'src=https://material.angular.io/assets/img/examples/shiba2.jpg',quantity: 1, price: 150, subtotal: 150, remove: '&nbsp;' },
-  {position: 2, name: 'Dog1', img: 'src=https://material.angular.io/assets/img/examples/shiba2.jpg',quantity: 2, price: 150, subtotal: 150, remove: '&nbsp;' }
-];
 
 
 @Component({
@@ -21,25 +11,31 @@ const ELEMENT_DATA: Product[] = [
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-
-
-
-//
-
-
-
-
 export class OrderComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'img', 'quantity', 'price', 'subtotal', 'remove'];
-  dataSource = ELEMENT_DATA;
-  constructor() {}
+
+  products: Product[];
+  displayedColumns: DisplayedColumns[];
+
+
+  constructor(private service: OnlineShopService,
+              public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
+    this.products = this.service.getProducts();
 
+     this.displayedColumns.push(products)
+    console.log(this.displayedColumns)
+  }
 
+  openDialog() {
+     this.dialog.open(OrderDialogComponent);
+  }
 
-
+  getTotalCost(): number {
+    return 1000; // FIXME: поправить
   }
 
 }
+
 
