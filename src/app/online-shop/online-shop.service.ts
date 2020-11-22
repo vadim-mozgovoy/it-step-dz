@@ -105,6 +105,5 @@ export class OnlineShopService {
 
   getProducts(): Product[] {
     return this.products;
-
   }
 }

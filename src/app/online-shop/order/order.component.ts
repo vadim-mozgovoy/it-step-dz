@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {OnlineShopService} from "../online-shop.service";
-import {OrderDialogComponent} from "../order-dialog/order-dialog.component";
-import {MatDialog} from "@angular/material/dialog";
-import {DisplayedColumns, Product} from "../models";
+import {OnlineShopService} from '../online-shop.service';
+import {OrderDialogComponent} from '../order-dialog/order-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
+import {DisplayedColumns, Product} from '../models';
 
 
 
@@ -23,12 +23,9 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = this.service.getProducts();
-
-     this.displayedColumns.push(products)
-    console.log(this.displayedColumns)
   }
 
-  openDialog() {
+  openDialog(): void {
      this.dialog.open(OrderDialogComponent);
   }
 
