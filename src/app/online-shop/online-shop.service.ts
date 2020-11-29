@@ -7,8 +7,18 @@ import {Product} from "./models";
 })
 
 export class OnlineShopService {
+  get products(): Product[] {
+    const rawProducts: string = localStorage.getItem('products')
+    const records: Product[] = JSON.parse(rawProducts);
+    return records || this._products;
+  }
 
-  private products: Product[] = [
+  set products(value: Product[]) {
+    const records: string = JSON.stringify(value);
+    localStorage.setItem('products', records)
+  }
+
+  private _products: Product[] = [
     {
       position: 1,
       name: 'Пальто',
@@ -105,5 +115,15 @@ export class OnlineShopService {
 
   getProducts(): Product[] {
     return this.products;
+  }
+
+  addProduct(model: Product): void {
+    //TODO добавить model в список продуктов
+    this.products.push(model);
+  }
+
+  deleteProduct(model: Product): void {
+    //TODO удалить из списка продуктов model
+    this.products = this.products.filter(product => product.position !== model.position);
   }
 }

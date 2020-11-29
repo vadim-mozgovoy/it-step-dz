@@ -1,0 +1,58 @@
+
+<button mat-raised-button color="primary" (click)="openDialog()" class="add" >Add product</button>
+<br><br>
+<table>
+  <thead>
+  <tr>
+    <th> №</th>
+    <th>Name Product</th>
+    <th>Image</th>
+    <th>Description</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Update</th>
+    <th>Remove</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <td> 1 </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <td> 1 </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="img">
+    <td>1<img  width="75" height="100"></td>
+  </ng-container>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="description">
+    <td> lorem </td>
+  </ng-container>
+  <ng-container matColumnDef="quantity">
+    <td> 1 </td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <td> 1 </td>
+  </ng-container>
+  <ng-container matColumnDef="remove">
+    <td>
+      <button mat-flat-button color="accent" >
+        <mat-icon>update</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="remove">
+    <td>
+      <button mat-fab color="primary" >
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  </tbody>
+</table>

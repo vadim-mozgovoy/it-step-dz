@@ -21,11 +21,13 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = this.service.getProducts();
+    console.log('world')
   }
 
   openDialog(): void {
     this.dialog.open(OrderDialogComponent);
   }
+
   // getSubtotal(): number{
   //   return this.products[0].price * this.products[0].quantity
   // }
@@ -33,9 +35,10 @@ export class OrderComponent implements OnInit {
   getTotalCost(): number {
     return this.products.map(t => t.subtotal).reduce((acc, value) => acc + value, 0);
   }
-  deleteProduct(product){
-    const index = this.products.indexOf(product);
-    this.products.splice(index, 1);
+
+  deleteProduct(product) {
+    this.service.deleteProduct(product)
+    this.products = this.service.getProducts();
   }
 
 }

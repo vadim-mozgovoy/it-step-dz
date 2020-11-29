@@ -9,14 +9,11 @@ export interface Product {
   subtotal: number;
   remove: string;
 }
-
-export interface DisplayedColumns {
+export interface NewProduct {
   name: string;
   position: number;
   img: string;
   description: string;
   quantity: number;
   price: number;
-  subtotal: number;
-  remove: string;
 }
