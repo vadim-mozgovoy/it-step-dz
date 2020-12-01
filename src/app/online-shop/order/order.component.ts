@@ -40,6 +40,9 @@ export class OrderComponent implements OnInit {
     this.service.deleteProduct(product)
     this.products = this.service.getProducts();
   }
+  addProduct(product) {
+
+  }
 
 }
 

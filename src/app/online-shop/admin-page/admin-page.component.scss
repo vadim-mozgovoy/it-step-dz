@@ -13,3 +13,6 @@ th,td {
   margin-left: 70px;
   margin-top: 10px;
 }
+input.ng-touched.ng-invalid{
+  border-color: red;
+}
