@@ -6,6 +6,7 @@ import { ShopCardsComponent } from './shop-cards/shop-cards.component';
 import { OrderComponent } from './order/order.component';
 import {OrderDialogComponent} from "./order-dialog/order-dialog.component";
 import {AdminPageComponent, AdminPageDialogComponent} from './admin-page/admin-page.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -15,6 +16,8 @@ import {AdminPageComponent, AdminPageDialogComponent} from './admin-page/admin-p
     CommonModule,
     OnlineShopRoutingModule,
     MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
 
   ]
 })

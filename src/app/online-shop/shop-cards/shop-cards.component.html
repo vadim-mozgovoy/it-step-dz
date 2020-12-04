@@ -13,10 +13,10 @@
         <mat-card-actions class="shopingcard">
           <mat-form-field class="example-full-width">
             <mat-label>Quantity</mat-label>
-            <input matInput type="number"  placeholder="1-100">
+            <input matInput type="number"  placeholder="1-100" [(ngModel)]="quantity" >
           </mat-form-field>
           <button mat-icon-button>
-            <mat-icon>shopping_cart</mat-icon>
+            <mat-icon (click)="addBasket()">shopping_cart</mat-icon>
           </button>
         </mat-card-actions>
       </mat-card>

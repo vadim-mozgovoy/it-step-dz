@@ -3,6 +3,7 @@ import {OnlineShopService} from '../online-shop.service';
 import {OrderDialogComponent} from '../order-dialog/order-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {Product} from '../models';
+import {BasketShopService} from "../basket-shop.service";
 
 
 @Component({
@@ -12,16 +13,15 @@ import {Product} from '../models';
 })
 export class OrderComponent implements OnInit {
 
-  products: Product[];
+  _shopProduct: Product[];
 
 
-  constructor(private service: OnlineShopService,
+  constructor(private service: BasketShopService,
               public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
-    this.products = this.service.getProducts();
-    console.log('world')
+    this._shopProduct = this.service.getProducts();
   }
 
   openDialog(): void {
@@ -33,12 +33,15 @@ export class OrderComponent implements OnInit {
   // }
 
   getTotalCost(): number {
-    return this.products.map(t => t.subtotal).reduce((acc, value) => acc + value, 0);
+    return this._shopProduct.map(t => t.subtotal).reduce((acc, value) => acc + value, 0);
   }
 
-  deleteProduct(product) {
-    this.service.deleteProduct(product)
-    this.products = this.service.getProducts();
+  // deleteProduct(product) {
+  //   this.service.deleteProduct(product)
+  //   this._shopProduct = this.service.getProducts();
+  // }
+  addProduct(product) {
+
   }
 
 }

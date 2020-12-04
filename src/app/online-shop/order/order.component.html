@@ -1,3 +1,4 @@
+<br>
 <table>
   <thead>
   <tr>
@@ -10,7 +11,7 @@
     <th>Remove</th>
   </tr>
   </thead>
-  <tbody *ngFor="let product of products">
+  <tbody *ngFor="let product of _shopProduct">
   <!-- Position Column -->
   <ng-container matColumnDef="position">
     <td> {{product.position}} </td>
@@ -45,16 +46,16 @@
     </td>
   </ng-container>
   </tbody>
-  <tfoot >
-      <td colspan="5"  style="text-align: end"><b>Total : </b></td>
-      <td >{{getTotalCost() }} $ </td>
-      <td>
-        <button mat-raised-button color="basic" (click)="openDialog()">BUY</button>
-      </td>
+  <tfoot>
+  <td colspan="5" style="text-align: end"><b>Total : </b></td>
+  <td>{{getTotalCost() }} $</td>
+  <td>
+    <button mat-raised-button color="basic" (click)="openDialog()">BUY</button>
+  </td>
 
   </tfoot>
-
 </table>
+<br>
 
 
 
