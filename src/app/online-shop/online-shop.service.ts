@@ -5,7 +5,6 @@ import {Product} from "./models";
 @Injectable({
   providedIn: 'root'
 })
-
 export class OnlineShopService {
   get products(): Product[] {
     const rawProducts: string = localStorage.getItem('products')

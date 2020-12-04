@@ -1,5 +1,5 @@
 <h1 mat-dialog-title style="color: white">Добавьте новый товар и данные о нём</h1>
-<form [formGroup]="rForm" (submit)="onSubmit()">
+<form [formGroup]="formGroup" (submit)="onSubmit()">
   <div class="example-container">
     <mat-form-field appearance="fill">
       <mat-label>Name Product</mat-label>
@@ -28,8 +28,13 @@
     <br>
 
   </div>
-  <mat-dialog-actions align="end">
-    <button type="submit" mat-raised-button mat-dialog-close>Add</button>
+  <div class="btns">
+  <mat-dialog-actions>
+    <button type="submit" mat-raised-button  mat-dialog-close>Cancel</button>
   </mat-dialog-actions>
+  <mat-dialog-actions>
+    <button type="submit" mat-raised-button  mat-dialog-close>Add</button>
+  </mat-dialog-actions>
+  </div>
 </form>
 

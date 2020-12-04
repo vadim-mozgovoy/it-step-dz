@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {Product} from "../models";
+import {Component, OnInit} from '@angular/core';
+import { Product} from "../models";
 import {OnlineShopService} from "../online-shop.service";
+import {BasketShopService} from "../basket-shop.service";
+
 
 
 @Component({
@@ -10,14 +12,22 @@ import {OnlineShopService} from "../online-shop.service";
 })
 export class ShopCardsComponent implements OnInit {
 
-  products: Product[] ;
+  products: Product[];
 
 
 
-  constructor(private service: OnlineShopService) { }
-
-  ngOnInit(): void {
-    this.products = this.service.getProducts();
+  constructor(private onlineShopService: OnlineShopService, private basketShopService: BasketShopService) {
   }
 
+  ngOnInit(): void {
+    this.products = this.onlineShopService.getProducts();
+    console.log(this.products)
+  }
+
+  addBasket(): void {
+    // this.basket = this.basketShopService.getProducts();
+    // // this.basket.push(this.quantity)
+    //
+    // console.log(this.basket)
+  }
 }

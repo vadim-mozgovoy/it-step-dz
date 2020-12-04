@@ -9,11 +9,4 @@ export interface Product {
   subtotal: number;
   remove: string;
 }
-export interface NewProduct {
-  name: string;
-  position: number;
-  img: string;
-  description: string;
-  quantity: number;
-  price: number;
-}
+

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {BasketShopService} from "../basket-shop.service";
+import {Product} from "../models";
 
 
 @Component({
@@ -9,17 +11,25 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./admin-page.component.scss']
 })
 export class AdminPageComponent implements OnInit {
-  rForm: FormGroup;
+  formGroup: Product[];
 
-  constructor(public dialog: MatDialog, private fb: FormBuilder) {
+  constructor(public dialog: MatDialog, private fb: FormBuilder, ) {
   }
 
   ngOnInit(): void {
   }
 
   openDialog(): void {
-    this.dialog.open(AdminPageDialogComponent);
+    let dialogRef = this.dialog.open(AdminPageDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+      this.formGroup = result;
+    });
+    // dialogRef.close('Pizza!');
   }
+
 }
 
 
@@ -30,9 +40,9 @@ export class AdminPageComponent implements OnInit {
 })
 export class AdminPageDialogComponent implements OnInit {
 
-  rForm: FormGroup;
+  formGroup: FormGroup;
 
-  constructor(public dialog: MatDialog, private fb: FormBuilder) {
+  constructor(public dialog: MatDialog, private fb: FormBuilder, public dialogRef: MatDialogRef<AdminPageDialogComponent>) {
   }
 
   ngOnInit(): void {
@@ -40,7 +50,7 @@ export class AdminPageDialogComponent implements OnInit {
   }
 
   initForm() {
-    this.rForm = this.fb.group({
+    this.formGroup = this.fb.group({
       name: [null, [Validators.required]],
       img: [null, [Validators.required]],
       description: [null, [Validators.required]],
@@ -50,9 +60,9 @@ export class AdminPageDialogComponent implements OnInit {
   }
 
   onSubmit() {
-    const controls = this.rForm.controls;
+    const controls = this.formGroup.controls;
 
-    if (this.rForm.invalid) {
+    if (this.formGroup.invalid) {
       /** Если форма не валидна, то помечаем все контролы как touched*/
       Object.keys(controls)
         .forEach(controlName => controls[controlName].markAsTouched());
@@ -61,7 +71,7 @@ export class AdminPageDialogComponent implements OnInit {
     }
 
     /** TODO: Обработка данных формы */
-    console.log(this.rForm.value);
-
+    console.log(this.formGroup.value);
   }
+
 }

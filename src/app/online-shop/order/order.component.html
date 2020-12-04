@@ -11,7 +11,7 @@
     <th>Remove</th>
   </tr>
   </thead>
-  <tbody *ngFor="let product of products">
+  <tbody *ngFor="let product of _shopProduct">
   <!-- Position Column -->
   <ng-container matColumnDef="position">
     <td> {{product.position}} </td>
