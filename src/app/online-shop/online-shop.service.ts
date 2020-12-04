@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {Product} from "./models";
+import { Injectable } from '@angular/core';
+import { Product } from './models';
 
 
 @Injectable({
@@ -7,14 +7,14 @@ import {Product} from "./models";
 })
 export class OnlineShopService {
   get products(): Product[] {
-    const rawProducts: string = localStorage.getItem('products')
+    const rawProducts: string = localStorage.getItem('products');
     const records: Product[] = JSON.parse(rawProducts);
     return records || this._products;
   }
 
   set products(value: Product[]) {
     const records: string = JSON.stringify(value);
-    localStorage.setItem('products', records)
+    localStorage.setItem('products', records);
   }
 
   private _products: Product[] = [

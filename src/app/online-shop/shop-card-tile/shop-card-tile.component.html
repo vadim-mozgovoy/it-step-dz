@@ -1,0 +1,19 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{product.name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="product.img" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>{{product.description}}</p>
+  </mat-card-content>
+  <span>Price: {{product.price}}$</span>
+  <mat-card-actions class="shopingcard">
+    <mat-form-field class="example-full-width">
+      <mat-label>Quantity</mat-label>
+      <input #quantity matInput type="number" placeholder="1-100" >
+    </mat-form-field>
+    <button mat-icon-button>
+      <mat-icon (click)="addBasket(product, quantity.value)">shopping_cart</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

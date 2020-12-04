@@ -15,19 +15,13 @@ export class ShopCardsComponent implements OnInit {
   products: Product[];
 
 
-
-  constructor(private onlineShopService: OnlineShopService, private basketShopService: BasketShopService) {
+  constructor(private onlineShopService: OnlineShopService,
+              private basketShopService: BasketShopService) {
   }
 
   ngOnInit(): void {
     this.products = this.onlineShopService.getProducts();
-    console.log(this.products)
   }
 
-  addBasket(): void {
-    // this.basket = this.basketShopService.getProducts();
-    // // this.basket.push(this.quantity)
-    //
-    // console.log(this.basket)
-  }
+
 }

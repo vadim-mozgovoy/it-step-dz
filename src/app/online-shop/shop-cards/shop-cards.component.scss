@@ -1,41 +1,6 @@
-.example-card {
-  max-width: 250px;
-  margin: 10px;
-
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
-.quantity{
-  width: 40px;
-  padding: 5px;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-}
-.labelquantity{
-  margin-left: 10px;
-}
-mat-card-actions{
-  display: flex;
-  justify-content: space-around;
-}
 ul{
   list-style-type: none;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-}
-p{
-  color: white;
-}
-.shopingcard{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.mat-form-field{
-  width: 100px;
 }

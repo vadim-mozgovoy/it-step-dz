@@ -7,11 +7,12 @@ import { OrderComponent } from './order/order.component';
 import {OrderDialogComponent} from "./order-dialog/order-dialog.component";
 import {AdminPageComponent, AdminPageDialogComponent} from './admin-page/admin-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ShopCardTileComponent } from './shop-card-tile/shop-card-tile.component';
 
 
 
 @NgModule({
-  declarations: [ ShopCardsComponent, OrderComponent, OrderDialogComponent, AdminPageComponent, AdminPageDialogComponent],
+  declarations: [ ShopCardsComponent, OrderComponent, OrderDialogComponent, AdminPageComponent, AdminPageDialogComponent, ShopCardTileComponent],
   imports: [
     CommonModule,
     OnlineShopRoutingModule,
