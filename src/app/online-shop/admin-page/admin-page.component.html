@@ -48,7 +48,7 @@
   </ng-container>
   <ng-container matColumnDef="remove">
     <td>
-      <button mat-fab color="primary">
+      <button (click)="deleteProduct(product)" mat-fab color="primary">
         <mat-icon>delete_forever</mat-icon>
       </button>
     </td>

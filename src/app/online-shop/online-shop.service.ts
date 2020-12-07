@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from './models';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { filter, skip } from 'rxjs/operators';
 
 
 @Injectable({
@@ -12,10 +14,8 @@ export class OnlineShopService {
     return records || this._products;
   }
 
-  set products(value: Product[]) {
-    const records: string = JSON.stringify(value);
-    localStorage.setItem('products', records);
-  }
+  // TODO: Vadim: Subject, BehaviorSubject
+  private productsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>(this.products);
 
   private _products: Product[] = [
     {
@@ -108,21 +108,26 @@ export class OnlineShopService {
     },
   ];
 
-
   constructor() {
+    this.productsSubject.asObservable()
+      .pipe(
+        skip(1)
+      )
+      .subscribe((value: Product[]) => localStorage.setItem('products', JSON.stringify(value)));
   }
 
-  getProducts(): Product[] {
-    return this.products;
+  getProducts(): Observable<Product[]> {
+    return this.productsSubject;
   }
 
   addProduct(model: Product): void {
-    //TODO добавить model в список продуктов
-    this.products = this.products.concat([model]);
+    const allProducts: Product[] = this.productsSubject.getValue() || [];
+    allProducts.push(model);
+    this.productsSubject.next(allProducts);
   }
 
   deleteProduct(model: Product): void {
-    //TODO удалить из списка продуктов model
-    this.products = this.products.filter(product => product.position !== model.position);
+    const allProducts = this.productsSubject.getValue().filter(product => product.position !== model.position);
+    this.productsSubject.next(allProducts);
   }
 }

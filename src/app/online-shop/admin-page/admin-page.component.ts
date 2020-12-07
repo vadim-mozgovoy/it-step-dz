@@ -22,7 +22,8 @@ export class AdminPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.service.getProducts();
+    this.service.getProducts()
+      .subscribe(products => this.products = products);
   }
 
   openDialog(): void {
@@ -35,6 +36,9 @@ export class AdminPageComponent implements OnInit {
     });
   }
 
+  deleteProduct(product: Product): void {
+    this.service.deleteProduct(product);
+  }
 }
 
 
