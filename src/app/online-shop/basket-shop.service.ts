@@ -6,6 +6,8 @@ import { Product } from './models';
 })
 export class BasketShopService {
 
+
+
   get shopProducts(): Product[] {
     const shopProducts: string = localStorage.getItem('basket');
     const records: Product[] = JSON.parse(shopProducts);
@@ -18,8 +20,6 @@ export class BasketShopService {
   }
 
 
-  constructor() {
-  }
 
   getProducts(): Product[] {
     return this.shopProducts;

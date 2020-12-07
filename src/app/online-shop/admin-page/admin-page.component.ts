@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {BasketShopService} from "../basket-shop.service";
 import {Product} from "../models";
+import { OnlineShopService } from '../online-shop.service';
 
 
 @Component({
@@ -13,21 +14,25 @@ import {Product} from "../models";
 export class AdminPageComponent implements OnInit {
   formGroup: Product[];
 
-  constructor(public dialog: MatDialog, private fb: FormBuilder, ) {
+  products: Product[]; // All possible products (100500)
+
+  constructor(public dialog: MatDialog,
+              private fb: FormBuilder,
+              private service: OnlineShopService) {
   }
 
   ngOnInit(): void {
+    this.products = this.service.getProducts();
   }
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(AdminPageDialogComponent);
+    const dialogRef = this.dialog.open(AdminPageDialogComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-      this.formGroup = result;
+    dialogRef.afterClosed().subscribe((product: Product) => {
+      if (product) {
+        this.service.addProduct(product);
+      }
     });
-    // dialogRef.close('Pizza!');
   }
 
 }
@@ -42,7 +47,9 @@ export class AdminPageDialogComponent implements OnInit {
 
   formGroup: FormGroup;
 
-  constructor(public dialog: MatDialog, private fb: FormBuilder, public dialogRef: MatDialogRef<AdminPageDialogComponent>) {
+  constructor(public dialog: MatDialog,
+              private fb: FormBuilder,
+              public dialogRef: MatDialogRef<AdminPageDialogComponent>) {
   }
 
   ngOnInit(): void {
@@ -70,8 +77,7 @@ export class AdminPageDialogComponent implements OnInit {
       return;
     }
 
-    /** TODO: Обработка данных формы */
-    console.log(this.formGroup.value);
+    const product: Product = this.formGroup.value;
+    this.dialogRef.close(product);
   }
-
 }

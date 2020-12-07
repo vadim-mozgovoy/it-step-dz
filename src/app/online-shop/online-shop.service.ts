@@ -118,7 +118,7 @@ export class OnlineShopService {
 
   addProduct(model: Product): void {
     //TODO добавить model в список продуктов
-    this.products.push(model);
+    this.products = this.products.concat([model]);
   }
 
   deleteProduct(model: Product): void {
