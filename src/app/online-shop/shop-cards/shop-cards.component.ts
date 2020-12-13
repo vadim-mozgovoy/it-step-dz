@@ -20,7 +20,8 @@ export class ShopCardsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.onlineShopService.getProducts();
+    this.onlineShopService.getProducts()
+      .subscribe(items => this.products = items);
   }
 
 

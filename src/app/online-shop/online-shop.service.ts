@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from './models';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { filter, skip } from 'rxjs/operators';
+import { filter, skip, tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -15,7 +15,7 @@ export class OnlineShopService {
   }
 
   // TODO: Vadim: Subject, BehaviorSubject
-  private productsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>(this.products);
+  private productsSubject: BehaviorSubject<Product[]>;
 
   private _products: Product[] = [
     {
@@ -109,9 +109,12 @@ export class OnlineShopService {
   ];
 
   constructor() {
+    this.productsSubject = new BehaviorSubject<Product[]>(this.products);
+
     this.productsSubject.asObservable()
       .pipe(
-        skip(1)
+        skip(1),
+        tap(value => console.log('Save into LS:', value))
       )
       .subscribe((value: Product[]) => localStorage.setItem('products', JSON.stringify(value)));
   }
