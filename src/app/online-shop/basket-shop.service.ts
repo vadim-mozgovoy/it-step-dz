@@ -30,15 +30,7 @@ export class BasketShopService {
     this.shopProducts = this.shopProducts.concat(products);
   }
 
-  getTotalCost(): number {
-    return this.shopProducts.map(t => t.subtotal).reduce((acc, value) => acc + value, 0);
-  }
 
-  updateProductCount(product: Product, count: number): void {
-    const productsExceptCurrentProduct = this.shopProducts.filter(item => item.name !== product.name);
-    const newProducts = new Array(count).fill(product);
-    this.shopProducts = productsExceptCurrentProduct.concat(newProducts);
-  }
 
   deleteProduct(product: Product): void {
     const index = this.shopProducts.findIndex(item => item.name === product.name);

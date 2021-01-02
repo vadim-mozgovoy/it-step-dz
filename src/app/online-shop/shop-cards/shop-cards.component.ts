@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { Product} from "../models";
+import {Product} from "../models";
 import {OnlineShopService} from "../online-shop.service";
 import {BasketShopService} from "../basket-shop.service";
-
 
 
 @Component({

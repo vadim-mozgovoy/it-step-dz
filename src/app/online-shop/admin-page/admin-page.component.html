@@ -13,10 +13,10 @@
     <th>Remove</th>
   </tr>
   </thead>
-  <tbody *ngFor="let product of products">
+  <tbody *ngFor="let product of products; let i=index">
   <!-- Position Column -->
   <ng-container matColumnDef="position">
-    <td> {{ product.position }}</td>
+    <td> {{ i + 1 }}</td>
   </ng-container>
 
   <!-- Name Column -->
@@ -30,18 +30,18 @@
   </ng-container>
   <!-- Symbol Column -->
   <ng-container matColumnDef="description">
-    <td> lorem</td>
+    <td> {{ product.description }}</td>
   </ng-container>
   <ng-container matColumnDef="quantity">
-    <td> 1</td>
+    <td> {{ product.quantity}}</td>
   </ng-container>
 
   <ng-container matColumnDef="price">
-    <td> 1</td>
+    <td> {{ product.price}}</td>
   </ng-container>
   <ng-container matColumnDef="remove">
     <td>
-      <button mat-flat-button color="accent">
+      <button mat-flat-button color="accent" (click)="updateProduct(product, i)">
         <mat-icon>update</mat-icon>
       </button>
     </td>

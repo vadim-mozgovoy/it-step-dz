@@ -6,7 +6,6 @@ export interface Product {
   quantity: number;
   price: number;
   position?: number;
-  subtotal?: number;
   remove?: string;
 }
 

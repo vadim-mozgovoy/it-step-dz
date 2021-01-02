@@ -11,10 +11,10 @@
     <th>Remove</th>
   </tr>
   </thead>
-  <tbody *ngFor="let product of products">
+  <tbody *ngFor="let product of products, let i = index">
   <!-- Position Column -->
   <ng-container matColumnDef="position">
-    <td> {{product.position}} </td>
+    <td> {{i+1}} </td>
   </ng-container>
 
   <!-- Name Column -->
@@ -36,7 +36,7 @@
   </ng-container>
 
   <ng-container matColumnDef="subtotal">
-    <td> {{product.price * product.quantity }} $</td>
+    <td>  {{product.price * product.quantity}}$</td>
   </ng-container>
   <ng-container matColumnDef="remove">
     <td>

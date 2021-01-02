@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {BasketShopService} from "../basket-shop.service";
 import {Product} from "../models";
-import { OnlineShopService } from '../online-shop.service';
+import {OnlineShopService} from '../online-shop.service';
+import {count} from "rxjs/operators";
 
 
 @Component({
@@ -12,7 +12,6 @@ import { OnlineShopService } from '../online-shop.service';
   styleUrls: ['./admin-page.component.scss']
 })
 export class AdminPageComponent implements OnInit {
-  formGroup: Product[];
 
   products: Product[]; // All possible products (100500)
 
@@ -38,6 +37,10 @@ export class AdminPageComponent implements OnInit {
 
   deleteProduct(product: Product): void {
     this.service.deleteProduct(product);
+  }
+
+  updateProduct(product: Product, count: number): void {
+    this.service.updateProduct(product, count);
   }
 }
 
