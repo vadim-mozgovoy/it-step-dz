@@ -1,8 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Product} from './models';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {skip, tap} from 'rxjs/operators';
-import {HttpClient} from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { Product } from './models';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { skip, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import * as mock from '../../assets/products.json';
 
 
 @Injectable({
@@ -22,17 +23,14 @@ export class OnlineShopService {
       .subscribe((value: Product[]) => localStorage.setItem('products', JSON.stringify(value)));
   }
 
-  private _products: Product[];
-
   get products(): Product[] {
     const rawProducts: string = localStorage.getItem('products');
     const records: Product[] = JSON.parse(rawProducts);
-    return records || this._products;
+    return  records || (mock as any).default;
   }
 
   getProducts(): Observable<Product[]> {
-
-    return this.http.get<Product[]>('assets/products.json')
+    return this.productsSubject;
   }
 
   // getProducts2(): Observable<Product[]> {
@@ -52,9 +50,8 @@ export class OnlineShopService {
   }
 
   updateProduct(product: Product, count: number): void {
-
     const productsExceptCurrentProduct = this.productsSubject.getValue().filter(item => item.name !== product.name);
     const newProducts = new Array(count).fill(product);
-    this._products = productsExceptCurrentProduct.concat(newProducts);
+    this.productsSubject.next(productsExceptCurrentProduct.concat(newProducts));
   }
 }
