@@ -33,9 +33,7 @@ export class OnlineShopService {
     return this.productsSubject;
   }
 
-  // getProducts2(): Observable<Product[]> {
-  //   return this.http.get<Product[]>('assets/products.json');
-  // }
+
 
 
   addProduct(model: Product): void {

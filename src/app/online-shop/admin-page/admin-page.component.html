@@ -1,6 +1,7 @@
 <button mat-raised-button color="primary" (click)="openDialog()" class="add">Add product</button>
 <br><br>
-<table>
+
+<table >
   <thead>
   <tr>
     <th> №</th>
@@ -15,7 +16,7 @@
   </thead>
   <tbody *ngFor="let product of products; let i=index">
   <!-- Position Column -->
-  <ng-container matColumnDef="position">
+  <ng-container matColumnDef="id">
     <td> {{ i + 1 }}</td>
   </ng-container>
 
@@ -55,3 +56,19 @@
   </ng-container>
   </tbody>
 </table>
+
+
+<mat-sidenav-container>
+<mat-sidenav #sidenav mode="push" (opened)="log ('opened')" (closed)="log ('closed')" [(opened)]="opened">Sidenav</mat-sidenav>
+<mat-sidenav-content>Main
+  <button (click)="opened=!opened">toggle</button>
+  <button (click)="sidenav.open()">open</button>
+  <button (click)="sidenav.close()">close</button>
+  <button (click)="sidenav.toggle()">toggle</button>
+</mat-sidenav-content>
+</mat-sidenav-container>
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item>hello</button>
+  <button mat-menu-item>good buy</button>
+</mat-menu>
+<button mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button>

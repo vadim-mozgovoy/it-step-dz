@@ -1,6 +1,6 @@
 [
   {
-    "position": 1,
+    "id": 1,
     "name": "Пальто 1",
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ8tfZAEfMOdhKm-42O0ETwDO2UWrjqmvBOA&usqp=CAU",
     "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain.",
@@ -8,7 +8,7 @@
     "price": 150
   },
   {
-    "position": 2,
+    "id": 2,
     "name": "Пальто 2",
     "img": "https://vsegdavmode.com/zimnee-palto-08765-seryj-0-min.jpg",
     "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain.",
@@ -16,7 +16,7 @@
     "price": 170
   },
   {
-    "position": 3,
+    "id": 3,
     "name": "Куртка",
     "img": "https://dolcedonna.com.ua/uploaded/media/large_kr-190051_1-min.jpg",
     "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain.",
@@ -24,7 +24,7 @@
     "price": 130
   },
   {
-    "position": 4,
+    "id": 4,
     "name": "Пальто 3",
     "img": "https://modnapanenka.com.ua/image/data/Favoritti/990/120.jpeg",
     "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain.",
@@ -32,7 +32,7 @@
     "price": 160
   },
   {
-    "position": 5,
+    "id": 5,
     "name": "Пальто 4",
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQuRluY3Vb_3GLxyTf-JNjwS42gKHuevFS7A&usqp=CAU",
     "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain.",
@@ -40,7 +40,7 @@
     "price": 140
   },
   {
-    "position": 6,
+    "id": 6,
     "name": "Пальто 5",
     "img": "https://vsegdavmode.com/zimnee-palto-08856-pylnaja-roza-0-min.jpg",
     "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain. ",
@@ -48,7 +48,7 @@
     "price": 190
   },
   {
-    "position": 7,
+    "id": 7,
     "name": "Пальто 6",
     "img": "https://blankalux.com.ua/upload/catalog_images/326128_beg/326128_beg02.jpg",
     "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain. ",
@@ -56,7 +56,7 @@
     "price": 200
   },
   {
-    "position": 8,
+    "id": 8,
     "name": "Пальто 7",
     "img": "https://modnapanenka.com.ua/image/data/Favoritti/%D0%9F-1089/1089-2/7.jpeg",
     "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain.",

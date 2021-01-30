@@ -5,7 +5,7 @@ export interface Product {
   description: string;
   quantity: number;
   price: number;
-  position?: number;
+  id?: number;
   remove?: string;
 }
 

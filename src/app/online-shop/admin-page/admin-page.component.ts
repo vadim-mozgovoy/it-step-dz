@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Product} from "../models";
 import {OnlineShopService} from '../online-shop.service';
@@ -12,9 +12,12 @@ import {count} from "rxjs/operators";
   styleUrls: ['./admin-page.component.scss']
 })
 export class AdminPageComponent implements OnInit {
-
+ opened = false;
+ log (state){
+   console.log(state)
+ }
   products: Product[]; // All possible products (100500)
-
+@Input() product : Product;
   constructor(public dialog: MatDialog,
               private fb: FormBuilder,
               private service: OnlineShopService) {
@@ -39,8 +42,16 @@ export class AdminPageComponent implements OnInit {
     this.service.deleteProduct(product);
   }
 
-  updateProduct(product: Product, count: number): void {
-    this.service.updateProduct(product, count);
+  updateProduct(data: Product, count: number): void {
+    // this.service.updateProduct(product, count);
+    const dialogRef = this.dialog.open(AdminPageDialogComponent, {data});
+
+    dialogRef.beforeClosed().subscribe((product: Product) => {
+      if (product) {
+        this.service.productsSubject.getValue();
+      }
+    });
+
   }
 }
 
@@ -56,7 +67,8 @@ export class AdminPageDialogComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
               private fb: FormBuilder,
-              public dialogRef: MatDialogRef<AdminPageDialogComponent>) {
+              public dialogRef: MatDialogRef<AdminPageDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) public product: Product) {
   }
 
   ngOnInit(): void {
@@ -65,12 +77,17 @@ export class AdminPageDialogComponent implements OnInit {
 
   initForm() {
     this.formGroup = this.fb.group({
+      id: [null, [Validators.required]],
       name: [null, [Validators.required]],
       img: [null, [Validators.required]],
       description: [null, [Validators.required]],
       quantity: [null, [Validators.required, Validators.pattern(/[0-9]/)]],
       price: [null, [Validators.required, Validators.pattern(/[0-9]/)]],
     });
+    // TODO: check if has data
+    if (this.product) {
+      this.formGroup.setValue(this.product);
+    }
   }
 
   onSubmit() {
@@ -86,5 +103,6 @@ export class AdminPageDialogComponent implements OnInit {
 
     const product: Product = this.formGroup.value;
     this.dialogRef.close(product);
+
   }
 }
