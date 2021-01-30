@@ -38,17 +38,15 @@ export class AdminPageComponent implements OnInit {
     });
   }
 
-  deleteProduct(product: Product): void {
-    this.service.deleteProduct(product);
+  deleteProduct(index: number): void {
+    this.service.deleteProduct(index);
   }
 
-  updateProduct(data: Product, count: number): void {
-    // this.service.updateProduct(product, count);
+  updateProduct(data: Product, index: number): void {
     const dialogRef = this.dialog.open(AdminPageDialogComponent, {data});
-
     dialogRef.beforeClosed().subscribe((product: Product) => {
       if (product) {
-        this.service.productsSubject.getValue();
+        this.service.updateProduct(product, index);
       }
     });
 

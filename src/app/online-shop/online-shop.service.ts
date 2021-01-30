@@ -42,14 +42,14 @@ export class OnlineShopService {
     this.productsSubject.next(allProducts);
   }
 
-  deleteProduct(model: Product): void {
-    const allProducts = this.productsSubject.getValue().filter(product => product.name !== model.name);
+  deleteProduct(i: number): void {
+    const allProducts = this.productsSubject.getValue().filter((product, index) => i !== index);
     this.productsSubject.next(allProducts);
   }
 
-  updateProduct(product: Product, count: number): void {
-    const productsExceptCurrentProduct = this.productsSubject.getValue().filter(item => item.name !== product.name);
-    const newProducts = new Array(count).fill(product);
-    this.productsSubject.next(productsExceptCurrentProduct.concat(newProducts));
+  updateProduct(product: Product, i: number): void {
+    const products = this.productsSubject.getValue();
+    products[i] = product;
+    this.productsSubject.next(products);
   }
 }
