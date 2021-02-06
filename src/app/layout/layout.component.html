@@ -20,7 +20,13 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span> Great Shop</span>
+      <div class="login">
+        <div><span>Great Shop</span> </div>
+        <div>
+          <span><a href="shop/sign-in">Sign in</a></span>
+          <span><a href="shop/registration">Registration</a></span>
+        </div>
+      </div>
     </mat-toolbar>
     <!-- Main Application Content -->
     <router-outlet></router-outlet>

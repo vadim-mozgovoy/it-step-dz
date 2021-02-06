@@ -15,3 +15,22 @@
   top: 0;
   z-index: 1;
 }
+
+.login {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    margin-right: 15px;
+  }
+}
+
+.login a {
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 5px;
+}
+

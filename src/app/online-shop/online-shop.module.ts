@@ -8,11 +8,13 @@ import {OrderDialogComponent} from "./order-dialog/order-dialog.component";
 import {AdminPageComponent, AdminPageDialogComponent} from './admin-page/admin-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ShopCardTileComponent } from './shop-card-tile/shop-card-tile.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { RegistrationComponent } from './user/registration/registration.component';
 
 
 
 @NgModule({
-  declarations: [ ShopCardsComponent, OrderComponent, OrderDialogComponent, AdminPageComponent, AdminPageDialogComponent, ShopCardTileComponent],
+  declarations: [ ShopCardsComponent, OrderComponent, OrderDialogComponent, AdminPageComponent, AdminPageDialogComponent, ShopCardTileComponent, SignInComponent, RegistrationComponent],
   imports: [
     CommonModule,
     OnlineShopRoutingModule,

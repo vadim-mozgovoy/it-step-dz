@@ -28,7 +28,12 @@
   </ng-container>
   <!-- Symbol Column -->
   <ng-container matColumnDef="quantity">
-    <td> {{ product.quantity}} </td>
+    <td>
+      <button mat-mini-fab>+</button>
+      <input type="number" #myInput [(ngModel)]="product.quantity"
+             style="text-align: center; width: 40px; margin: 10px">
+      <button mat-mini-fab (click)="(myInput.value)">-</button>
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="price">

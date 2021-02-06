@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ShopCardsComponent } from './shop-cards/shop-cards.component';
 import { OrderComponent } from './order/order.component';
 import {AdminPageComponent} from "./admin-page/admin-page.component";
+import {SignInComponent} from "./user/sign-in/sign-in.component";
 
 
 const routes: Routes = [
