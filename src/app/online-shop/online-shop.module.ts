@@ -1,20 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {MaterialModule} from "./shop-cards/material-modul";
-import { OnlineShopRoutingModule } from './online-shop-routing.module';
-import { ShopCardsComponent } from './shop-cards/shop-cards.component';
-import { OrderComponent } from './order/order.component';
+import {OnlineShopRoutingModule} from './online-shop-routing.module';
+import {ShopCardsComponent} from './shop-cards/shop-cards.component';
+import {OrderComponent} from './order/order.component';
 import {OrderDialogComponent} from "./order-dialog/order-dialog.component";
 import {AdminPageComponent, AdminPageDialogComponent} from './admin-page/admin-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { ShopCardTileComponent } from './shop-card-tile/shop-card-tile.component';
-import { SignInComponent } from './user/sign-in/sign-in.component';
-import { RegistrationComponent } from './user/registration/registration.component';
-
+import {ShopCardTileComponent} from './shop-card-tile/shop-card-tile.component';
+import {SignInComponent} from './user/sign-in/sign-in.component';
+import {RegistrationComponent} from './user/registration/registration.component';
 
 
 @NgModule({
-  declarations: [ ShopCardsComponent, OrderComponent, OrderDialogComponent, AdminPageComponent, AdminPageDialogComponent, ShopCardTileComponent, SignInComponent, RegistrationComponent],
+  declarations: [ShopCardsComponent, OrderComponent, OrderDialogComponent,
+    AdminPageComponent, AdminPageDialogComponent, ShopCardTileComponent,
+    SignInComponent, RegistrationComponent],
   imports: [
     CommonModule,
     OnlineShopRoutingModule,
@@ -24,4 +25,5 @@ import { RegistrationComponent } from './user/registration/registration.componen
 
   ]
 })
-export class OnlineShopModule { }
+export class OnlineShopModule {
+}

@@ -4,6 +4,7 @@ import { ShopCardsComponent } from './shop-cards/shop-cards.component';
 import { OrderComponent } from './order/order.component';
 import {AdminPageComponent} from "./admin-page/admin-page.component";
 import {SignInComponent} from "./user/sign-in/sign-in.component";
+import {RegistrationComponent} from "./user/registration/registration.component";
 
 
 const routes: Routes = [
@@ -20,6 +21,14 @@ const routes: Routes = [
     path: 'admin-page',
     component: AdminPageComponent
   },
+  {
+    path: 'sign-in',
+    component: SignInComponent
+  },
+  {
+    path: 'registration',
+    component: RegistrationComponent
+  }
 
 ];
 

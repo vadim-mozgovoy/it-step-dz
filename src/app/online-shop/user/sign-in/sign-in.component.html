@@ -1,1 +1,19 @@
-<p>sign-in works!</p>
+<div class="sign-in-form">
+  <h4>Sign in</h4>
+  <form novalidate  (ngSubmit)="onSubmit()" #signInForm = 'ngForm'>
+  <div class="form-group">
+    <input type="text" autocomplete = "off" name = "username" required placeholder = "User name"
+           ngModel #username= "ngModel" class="form-control">
+    <div class="alert alet-danger" [hidden]="username.valid || username.pristine">Please enter your name</div>
+    <input type="password" autocomplete = "off" name = "password" required placeholder = "Password"
+           ngModel #password= "ngModel" class="form-control">
+    <div class="alert alet-danger" [hidden]="password.valid || password.pristine">Please enter your password</div>
+  </div>
+  <div class="alert alet-danger" *ngIf="formError">
+    {{formError}}
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  </form>
+</div>

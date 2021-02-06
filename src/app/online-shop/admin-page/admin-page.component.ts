@@ -3,7 +3,7 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Product} from "../models";
 import {OnlineShopService} from '../online-shop.service';
-import {count} from "rxjs/operators";
+
 
 
 @Component({
@@ -12,12 +12,9 @@ import {count} from "rxjs/operators";
   styleUrls: ['./admin-page.component.scss']
 })
 export class AdminPageComponent implements OnInit {
- opened = false;
- log (state){
-   console.log(state)
- }
+
   products: Product[]; // All possible products (100500)
-@Input() product : Product;
+
   constructor(public dialog: MatDialog,
               private fb: FormBuilder,
               private service: OnlineShopService) {

@@ -57,18 +57,3 @@
   </tbody>
 </table>
 
-
-<mat-sidenav-container>
-<mat-sidenav #sidenav mode="push" (opened)="log ('opened')" (closed)="log ('closed')" [(opened)]="opened">Sidenav</mat-sidenav>
-<mat-sidenav-content>Main
-  <button (click)="opened=!opened">toggle</button>
-  <button (click)="sidenav.open()">open</button>
-  <button (click)="sidenav.close()">close</button>
-  <button (click)="sidenav.toggle()">toggle</button>
-</mat-sidenav-content>
-</mat-sidenav-container>
-<mat-menu #appMenu="matMenu">
-  <button mat-menu-item>hello</button>
-  <button mat-menu-item>good buy</button>
-</mat-menu>
-<button mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button>
