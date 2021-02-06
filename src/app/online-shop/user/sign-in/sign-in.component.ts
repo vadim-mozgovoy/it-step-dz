@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from "../../models";
 import {FormGroup} from "@angular/forms";
 
 @Component({
