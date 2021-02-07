@@ -1,26 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup} from "@angular/forms";
+import {Component} from '@angular/core';
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
-export class SignInComponent implements OnInit {
-  formGroup: FormGroup;
-  constructor() { }
+export class SignInComponent {
+  hide = true;
+  userName = new FormControl('', [Validators.required,]);
+  password = new FormControl('', [Validators.required]);
 
-  ngOnInit(): void {
-  }
-  onSubmit() {
-    const controls = this.formGroup.controls;
+  constructor() {}
 
-    if (this.formGroup.invalid) {
-      Object.keys(controls)
-        .forEach(controlName => controls[controlName].markAsTouched());
-
-      return;
+  getErrorMessage() {
+    if (this.userName.hasError('required')) {
+      return 'You must enter your name';
     }
 
+    return this.userName.hasError('name') ? 'Not a valid name' : '';
   }
+  getErrorPassword(){
+    if (this.password.hasError('required')) {
+      return 'You must enter your password';
+    }
+
+    return this.password.hasError('password') ? 'Not a valid password' : '';
+
+  }
+
 }

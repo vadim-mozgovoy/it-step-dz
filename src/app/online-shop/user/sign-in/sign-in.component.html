@@ -1,19 +1,66 @@
-<div class="sign-in-form">
-  <h4>Sign in</h4>
-  <form novalidate  (ngSubmit)="onSubmit()" #signInForm = 'ngForm'>
-  <div class="form-group">
-    <input type="text" autocomplete = "off" name = "username" required placeholder = "User name"
-           ngModel #username= "ngModel" class="form-control">
-    <div class="alert alet-danger" [hidden]="username.valid || username.pristine">Please enter your name</div>
-    <input type="password" autocomplete = "off" name = "password" required placeholder = "Password"
-           ngModel #password= "ngModel" class="form-control">
-    <div class="alert alet-danger" [hidden]="password.valid || password.pristine">Please enter your password</div>
-  </div>
-  <div class="alert alet-danger" *ngIf="formError">
-    {{formError}}
-  </div>
-  <div></div>
-  <div></div>
-  <div></div>
+<!--<mat-card-title style="color: white; text-align: center ">Sign in</mat-card-title>-->
+<!--<div class="example-container">-->
+<!--  <form  [formGroup]="signGroup">-->
+<!--    <mat-form-field appearance="fill">-->
+<!--      <mat-label>User name</mat-label>-->
+<!--      <input matInput formControlName="username" placeholder="User name">-->
+<!--    </mat-form-field>-->
+<!--    <br>-->
+<!--    <mat-form-field appearance="fill">-->
+<!--      <mat-label>Password</mat-label>-->
+<!--      <input matInput formControlName="password" placeholder="Password">-->
+<!--    </mat-form-field>-->
+
+<!--  </form>-->
+<!--</div>-->
+
+
+<div class="container">
+  <form>
+    <mat-card-title>Sign in</mat-card-title>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your name</mat-label>
+        <input matInput placeholder="Name" [formControl]="userName" required>
+        <mat-error *ngIf="userName.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" required [formControl]="password">
+        <mat-error *ngIf="password.invalid">{{getErrorPassword()}}</mat-error>
+        <mat-hint align="end">forgot password?</mat-hint>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+
+      </mat-form-field>
+    </div>
+    <div class="check">
+      <mat-checkbox>
+        Remember me
+      </mat-checkbox>
+    </div>
+    <div>
+      <button class="btn" type="submit" mat-raised-button color="primary">Sign in</button>
+    </div>
   </form>
+  <br>
+  <div class="mat-subheading-2">Or sign in</div>
+  <div class="social">
+    <div>
+      <button mat-fab color="primary" aria-label="Example icon button with a facebook icon">
+        <mat-icon text-align="center">facebook</mat-icon>
+      </button>
+    </div>
+    <div>
+      <button mat-fab color="accent" aria-label="Example icon button with a google icon">
+        <mat-icon text-align="center">Google</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>
+
+
