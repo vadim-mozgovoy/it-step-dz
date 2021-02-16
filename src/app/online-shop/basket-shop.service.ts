@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable, Input} from '@angular/core';
 import { Product } from './models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasketShopService {
-
-
+  @Input()
+  product: number;
 
   get shopProducts(): Product[] {
     const shopProducts: string = localStorage.getItem('basket');

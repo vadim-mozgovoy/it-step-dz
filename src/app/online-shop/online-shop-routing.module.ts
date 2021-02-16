@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { ShopCardsComponent } from './shop-cards/shop-cards.component';
-import { OrderComponent } from './order/order.component';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {ShopCardsComponent} from './shop-cards/shop-cards.component';
+import {OrderComponent} from './order/order.component';
 import {AdminPageComponent} from "./admin-page/admin-page.component";
 import {SignInComponent} from "./user/sign-in/sign-in.component";
 import {RegistrationComponent} from "./user/registration/registration.component";
@@ -36,4 +36,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class OnlineShopRoutingModule { }
+export class OnlineShopRoutingModule {
+}

@@ -10,7 +10,7 @@
   <mat-card-actions class="shopingcard">
     <mat-form-field class="example-full-width">
       <mat-label>Quantity</mat-label>
-      <input #quantity matInput type="number" min="1" [max]="product.quantity" placeholder="1-100" >
+      <input  #quantity matInput type="number" min="1" [max]="product.quantity" placeholder="1-100" >
     </mat-form-field>
     <button mat-icon-button>
       <mat-icon (click)="addBasket(product, quantity.value)">shopping_cart</mat-icon>

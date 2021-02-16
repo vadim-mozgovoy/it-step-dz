@@ -1,1 +1,52 @@
-<p>registration works!</p>
+<div class="container">
+  <mat-card style="padding: 30px">
+    <form (ngSubmit)="registerNewUser()" [formGroup] = "myForm" novalidate>
+      <mat-card-title>Registration</mat-card-title>
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter first name</mat-label>
+          <input  class="form-control" matInput formControlName="userFirstName" required>
+          <mat-error *ngIf="myForm.controls['userFirstName'].invalid">{{getErrorFirstName()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your last name</mat-label>
+          <input class="form-control" matInput formControlName="userLastName" required>
+          <mat-error *ngIf="myForm.controls['userLastName'].invalid">{{getErrorLastName()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input class="form-control" matInput formControlName="userEmail" required>
+          <mat-error *ngIf="myForm.controls['userEmail'].invalid">{{getErrorEmail()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input class="form-control" matInput [type]="hide ? 'password' : 'text'" required
+                 formControlName="userPassword">
+          <mat-error *ngIf="myForm.controls['userPassword'].value.invalid">{{getErrorPassword()}}</mat-error>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your telefone</mat-label>
+          <span matPrefix>+380 &nbsp;</span>
+          <input class="form-control" matInput formControlName="userTelefone" required maxLength="7"
+                 size="7">
+          <mat-error *ngIf="myForm.controls['userTelefone'].invalid">{{getErrorTelefone()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <button class="btn" type="submit" mat-raised-button color="primary">Save</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

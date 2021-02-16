@@ -17,6 +17,6 @@ export class ShopCardTileComponent implements OnInit {
   }
 
   addBasket(product: Product, count: string): void {
-    this.service.addProducts(product, +count);
+    this.service.addProducts(product, 1);
   }
 }

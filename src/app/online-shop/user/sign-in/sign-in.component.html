@@ -1,66 +1,50 @@
-<!--<mat-card-title style="color: white; text-align: center ">Sign in</mat-card-title>-->
-<!--<div class="example-container">-->
-<!--  <form  [formGroup]="signGroup">-->
-<!--    <mat-form-field appearance="fill">-->
-<!--      <mat-label>User name</mat-label>-->
-<!--      <input matInput formControlName="username" placeholder="User name">-->
-<!--    </mat-form-field>-->
-<!--    <br>-->
-<!--    <mat-form-field appearance="fill">-->
-<!--      <mat-label>Password</mat-label>-->
-<!--      <input matInput formControlName="password" placeholder="Password">-->
-<!--    </mat-form-field>-->
-
-<!--  </form>-->
-<!--</div>-->
-
 
 <div class="container">
-  <form>
-    <mat-card-title>Sign in</mat-card-title>
-    <div>
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your name</mat-label>
-        <input matInput placeholder="Name" [formControl]="userName" required>
-        <mat-error *ngIf="userName.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" required [formControl]="password">
-        <mat-error *ngIf="password.invalid">{{getErrorPassword()}}</mat-error>
-        <mat-hint align="end">forgot password?</mat-hint>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
+  <mat-card style="padding: 30px">
+    <form>
+      <mat-card-title>Sign in</mat-card-title>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your name</mat-label>
+          <input matInput  [formControl]="userName" required>
+          <mat-error *ngIf="userName.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" required [formControl]="password">
+          <mat-error *ngIf="password.invalid">{{getErrorPassword()}}</mat-error>
+          <mat-hint align="end">forgot password?</mat-hint>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
 
-      </mat-form-field>
+        </mat-form-field>
+      </div>
+      <div class="check">
+        <mat-checkbox>
+          Remember me
+        </mat-checkbox>
+      </div>
+      <div>
+        <button class="btn" type="submit" mat-raised-button color="primary">Sign in</button>
+      </div>
+    </form>
+    <br>
+    <div class="mat-subheading-2" align="center">Or sign in</div>
+    <div class="social">
+      <div>
+        <button mat-stroked-button style="width: 140px; height: 60px; color: white">
+          <img src="assets/images/icons8-facebook-48.png" alt=""> <span style="color: white">Facebook</span>
+        </button>
+        <button mat-stroked-button style="width: 140px; height: 60px; color: white; margin-left: 10px">
+          <img src="assets/images/icons8-google-48%20(1).png" alt=""> <span style="color: white">Google</span>
+        </button>
+      </div>
     </div>
-    <div class="check">
-      <mat-checkbox>
-        Remember me
-      </mat-checkbox>
-    </div>
-    <div>
-      <button class="btn" type="submit" mat-raised-button color="primary">Sign in</button>
-    </div>
-  </form>
-  <br>
-  <div class="mat-subheading-2">Or sign in</div>
-  <div class="social">
-    <div>
-      <button mat-fab color="primary" aria-label="Example icon button with a facebook icon">
-        <mat-icon text-align="center">facebook</mat-icon>
-      </button>
-    </div>
-    <div>
-      <button mat-fab color="accent" aria-label="Example icon button with a google icon">
-        <mat-icon text-align="center">Google</mat-icon>
-      </button>
-    </div>
-  </div>
+  </mat-card>
 </div>
 
 

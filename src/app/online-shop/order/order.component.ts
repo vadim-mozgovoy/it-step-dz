@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {OnlineShopService} from '../online-shop.service';
 import {OrderDialogComponent} from '../order-dialog/order-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {Product} from '../models';
